@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- コピー対象要素とコピーボタン -->
+    <input id="copyTarget" type="text" value="https://www.google.com/maps?q=35.6812405,139.7649361" readonly>
+    <button onclick="copyToClipboard()">Copy text</button>
+
+    <!-- bodyタグ内の下部に以下を入力する -->
+    <script>
+        function copyToClipboard() {
+            // コピー対象をJavaScript上で変数として定義する
+            var copyTarget = document.getElementById("copyTarget");
+
+            // コピー対象のテキストを選択する
+            copyTarget.select();
+
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+
+            // コピーをお知らせする
+            alert("コピーできました！ : " + copyTarget.value);
+        }
+    </script>
+</body>
+</html>
+
+
+<!--
+例えば、緯度 35.6812405 経度 139.7649361 の場合
+
+マーカーあり
+/maps?q={lat},{lng}
+https://www.google.com/maps?q=35.6812405,139.7649361
+
+マーカーなし (中央の指定のみ)
+/maps/{lat},{lng},{scale}
+3つめの表示範囲の指定が必要
+-->
+
+

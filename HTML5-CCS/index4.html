@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Javascript</title>
+    <style>
+        button {
+            width: 10em;
+            height:3em;
+        }
+    </style>
+    <script>
+        function insertItem(){
+            var container = document.getElementById("container");
+            var item = document.createElement("li");
+            item.textContent = "hello";
+            container.appendChild(item);
+        }
+        function removeItem(){
+            var container = document.getElementById("container");
+            var item = container.lastChild;
+            if(item){
+                container.removeChild(item);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="insertItem()">Insert</button>
+    <button onclick="removeItem()">Remove</button>
+    <ol id="container"></ol>
+</body>
+</html>

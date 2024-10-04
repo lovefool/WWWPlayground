@@ -1,0 +1,8 @@
+Memo books
+
+[W3Schools]Learn JavaScript and Ajax with w3Schools(Wiley)(2010).pdf
+Chap1
+...
+Chap10 functions
+
+
