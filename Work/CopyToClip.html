@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js-clipboard-copy</title>
+	<style>
+		body {
+			width: auto;
+			height: 80vh;
+			display: grid;
+			justify-content: center;
+			align-content: center;
+		}
+		.sample_url_copy_container {
+			display: flex;
+			column-gap: 20px;
+			align-items: center;
+		}
+		.sample_copy_bt {
+			padding: 5px 10px;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="sample_url_copy_container">
+		<address>
+			<p class="sample_hp_url"><strong>https://web-de-asobo.net/</strong></p>
+		</address>
+
+		<button type="button" class="sample_copy_bt">コピー</button>
+	</div>
+	
+	<script>
+		{
+		const HP_URL = document.querySelector('.sample_hp_url');
+		// const HP_URL_TEXT = HP_URL.textContent;
+		const HP_URL_TEXT = "123.456789,035.456789";
+		
+		const COPY_BT = document.querySelector('.sample_copy_bt');
+		const COPY_COMPLETE = document.createElement('div');
+		COPY_COMPLETE.innerHTML = '<strong style="color: red;">コピー完了</strong>';
+		
+		COPY_BT.addEventListener('click', () => {
+			navigator.clipboard.writeText(HP_URL_TEXT);
+			COPY_BT.replaceWith(COPY_COMPLETE);
+			
+			setTimeout( () => {
+				COPY_COMPLETE.replaceWith(COPY_BT);
+			},1500);
+		});
+		}
+	</script>
+</body>
+</html>
